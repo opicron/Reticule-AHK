@@ -28,16 +28,16 @@ Installation:
 
 Keys:
 -----
-* [windowskey] + page-up      
+###### [windowskey] + page-up      
 set opacity (loops from 1 to 0.5)
  
-* [windowskey] + end          
+###### [windowskey] + end          
 loop through crosshairs in /gfx (PNG only)
 
-* [windowskey] + home         
+###### [windowskey] + home         
 save configuration
 
-* [windowskey] + [arrowkeys]  
+###### [windowskey] + [arrowkeys]  
 move crosshair
 
 
