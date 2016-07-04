@@ -20,9 +20,9 @@ It is not possible for this script, now nor in the future, to draw over games ru
 
 ### Installation:
 -------------
-- Install AutoHotKey
-- Edit recticule.ahk and add or uncomment the game window class in the top configuration area (some examples included). Keep an eye on the numbering of the variables!
-- Enjoy!
+1 Install AutoHotKey
+2 Edit recticule.ahk (follow instructions inside)
+3 Enjoy!
 
 
 ### Keys:
