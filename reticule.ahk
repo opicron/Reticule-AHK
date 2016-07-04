@@ -1,8 +1,14 @@
-; Reticule v0.1 - opicr0n
+; Reticule v0.1 - opicr0n 2016 xJ
 ;
 ; code gathered from various sources
-; hacking and improvements by: opicr0n
+; other hacking and improvements by: opicr0n
+
+; greetings in no particular order:
 ;
+; big thanks to the ahk guys on the official forums!
+; meraple, dieboard, zulaji, anders, thomaze, ran, rocket, soad, kopra, 
+; diox, memag, miscellaneous, pandabaron, alvaro
+; whoever i forgot, you know who you are ^^
 
 ;
 ; ADD YOUR GAME WINDOW HERE!
@@ -99,9 +105,9 @@ _create:
 
   fileName := "gfx\" . x_file
 
-  x_Bitmap  := Gdip_CreateBitmapFromFile(fileName)
-  x_Width   := Gdip_GetImageWidth(x_Bitmap)
-  x_Height  := Gdip_GetImageHeight(x_Bitmap)
+  x_Bitmap  := Gdip_CreateBitmapFromFile(fileName)                                                             ; rZr
+  x_Width   := Gdip_GetImageWidth(x_Bitmap)                                                                    ; rZr
+  x_Height  := Gdip_GetImageHeight(x_Bitmap)                                                                   ; rZr
   nWidth    := x_Width
   nHeight   := x_Height
 
@@ -114,7 +120,7 @@ _create:
   pGraphics := Gdip_GraphicsFromHDC(hdc)
 
   Gui, Show, X%OCX% Y%OCY% NoActivate
-  UpdateLayeredWindow(hGui, hdc, OCX,OCY,nWidth,nHeight)
+  UpdateLayeredWindow(hGui, hdc, OCX,OCY,nWidth,nHeight)                                                       ; rZr
   Gdip_SetCompositingMode(pGraphics,1)
 
   pBrush := Gdip_BrushCreateSolid(0x0000000)
@@ -123,7 +129,7 @@ _create:
   this_X := Round( (nWidth - x_Width) / 2)
   this_Y := Round( (nHeight - x_Height) / 2)
 
-  Gdip_DrawImage(pGraphics, x_Bitmap, this_X, this_Y, x_Width, x_Height,"","","","",x_alpha)
+  Gdip_DrawImage(pGraphics, x_Bitmap, this_X, this_Y, x_Width, x_Height,"","","","",x_alpha)                   ; rZr
   UpdateLayeredWindow(hGui, hdc)
   Gdip_DeleteBrush(pBrush)
 
@@ -281,7 +287,7 @@ LabelCheckTrigger:
   While ( ProgWinTitle%A_Index% != "" ) ; onlt trigger active
     if ( !ProgRunning%A_Index% != !WinActive( ProgWinTitle := ProgWinTitle%A_Index% ) ) ; only active
       GoSubSafe( "LabelTriggerO" ( (ProgRunning%A_Index% := !ProgRunning%A_Index%) ? "n" : "ff" ) ) ; removed index
-      
+
 Return
 
 GoSubSafe(mySub)
@@ -297,3 +303,5 @@ LabelTriggerOn:
 LabelTriggerOff:
   Gosub m_hide
   Return
+
+; 2016 - opicr0n 
