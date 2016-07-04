@@ -32,7 +32,7 @@ Imgur: http://imgur.com/a/HJBhH
 ### Keys:
 -----
 
-Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The modifier key listed below are combinations of *the windows function / windows start* ( <img src="http://i.imgur.com/jDaD7Mc.png" width="10"/> ) key
+Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The modifier key listed below are combinations of the *windows function / windows start* ( <img src="http://i.imgur.com/jDaD7Mc.png" width="10"/> ) key
 
 | Key | Description |
 | :--- | :--- |
