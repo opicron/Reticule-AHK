@@ -29,18 +29,13 @@ It is not possible for this script, now nor in the future, to draw over games ru
 
 ### Keys:
 -----
-###### [windowskey] + page-up      
-set opacity (loops from 1 to 0.5)
- 
-###### [windowskey] + end          
-loop through crosshairs in /gfx (PNG only)
 
-###### [windowskey] + home         
-save configuration
-
-###### [windowskey] + [arrowkeys]  
-move crosshair
-
+| Key | Description |
+| --- | --- |
+| [windowskey] + page-up | set opacity (loops from 1 to 0.3) |
+| [windowskey] + end | loop through crosshairs in /gfx (PNG only) |
+| [windowskey] + home | save configuration |
+| [windowskey] + [arrowkeys] | move crosshair |
 
 ### Notes:
 ------
