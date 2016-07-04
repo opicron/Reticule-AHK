@@ -5,17 +5,17 @@ Reticule uses an transparant overlay window to draw an crosshair over games runn
 
 It is not possible for this script, now nor in the future, to draw over games running fullscreen mode.
 
-Disclaimer: Custom crosshair overlays are allowed by most game developers. No resposibility is taken if your account is banned for using this script.
+*Disclaimer: Custom crosshair overlays are allowed by most game developers. No resposibility is taken if your account is banned for using this script.*
 
 ### Features:
 ---------
-- multiple crosshairs included
-- opacity of crosshairs can be set
-- position of crosshairs can be adjusted per pixel
-- crosshairs can be switched on the fly
-- individual settings per crosshair!
-- only draws crosshair when game is in focus
-- system tray icon with context menu
+- [x] multiple crosshairs included
+- [x] opacity of crosshairs can be set
+- [x] position of crosshairs can be adjusted per pixel
+- [x] crosshairs can be switched on the fly
+- [x] individual settings per crosshair!
+- [x] only draws crosshair when game is in focus
+- [x] system tray icon with context menu
 
 
 ### Installation:
