@@ -1,6 +1,5 @@
 # Reticule-AHK
 ##Crosshair AHK script
-====================
 
 Reticule uses an transparant overlay window to draw an crosshair over games running in fullscreen windowed mode(!). Think of the Muble overlay with more functionality and less bulk.
 
