@@ -9,7 +9,7 @@
 ;
 
 ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; Dirty Bomb / Hawken
-;ProgWinTitle2 = ahk_class IW5          ; COD 8: MW3
+;ProgWinTitle2 = ahk_class IW5          ;COD 8: MW3
 ;ProgWinTitle3 = ahk_class CoDBlackOps  ;COD 7: BO
 ;ProgWinTitle4 = ahk_class IW4          ;COD 6: MW2
 ;ProgWinTitle5 = ahk_class CoD-WaW      ;COD 5: WAW
@@ -61,7 +61,7 @@ x_file  := "Default.png"
 PosX    := 0
 PosY    := 0
 x_alpha := 1
-x_id    := 1
+x_id    := 0
 
 ;
 ;
@@ -213,7 +213,7 @@ showch:
 return
 
 _write:
-  IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
+  ;IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
   IniWrite, %x_file%, %ScriptName%.ini, Main, filename
   
   IniWrite, %x_alpha%, %ScriptName%.ini, %x_file%, x_alpha
@@ -222,8 +222,8 @@ _write:
 Return
 
 _read:
-  IniRead, x_id, %ScriptName%.ini, Main, x_id, %x_id%
-  IniRead, filename, %ScriptName%.ini, Main, x_id, %x_file%
+  ;IniRead, x_id, %ScriptName%.ini, Main, x_id, %x_id%
+  IniRead, x_file, %ScriptName%.ini, Main, x_file, %x_file%
   IniRead, Center_X, %ScriptName%.ini, Main, Center_X, %Center_X%
   IniRead, Center_Y, %ScriptName%.ini, Main, Center_Y, %Center_Y%
   
@@ -231,6 +231,16 @@ _read:
   IniRead, PosX, %ScriptName%.ini, %x_file%, PosX, %PosX%
   IniRead, PosY, %ScriptName%.ini, %x_file%, PosY, %PosY%
   
+  ; find x_id from list of files, else 0
+  for index, element in FileList
+  {
+    ;ToolTip, %element% %x_file%
+    StringGetPos, pos, element, %x_file%
+    if pos >= 0
+      x_id := index
+  }
+  ;ToolTip, %x_id%
+
   OCX := Center_X + PosX
   OCY := Center_Y + PosY
 Return
@@ -250,7 +260,7 @@ Return
 
 _firstrun:
   ;defaults
-  IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
+  ;IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
   IniWrite, %PosX%, %ScriptName%.ini, Main, PosX
   IniWrite, %PosY%, %ScriptName%.ini, Main, PosY
   IniWrite, %x_alpha%, %ScriptName%.ini, Main, x_alpha
