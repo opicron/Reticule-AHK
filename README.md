@@ -47,4 +47,10 @@ Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The
 - reload the script after adding or renaming crosshairs!
 - add your game window class to the script!
 
+### Greetings:
+---
+Greetings in no particular order:
 
+Big thanks to the ahk guys on the official AHK forums! Also worth mentioning the great people at the Hawken and Dirty Bomb forums, meraple, dieboard, zulaji, anders, thomaze, ran, rocket, soad, kopra, diox, memag, miscellaneous, pandabaron, alvaro.
+
+Whoever i forgot, you know who you are ^^
