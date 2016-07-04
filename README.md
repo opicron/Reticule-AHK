@@ -21,8 +21,10 @@ It is not possible for this script, now nor in the future, to draw over games ru
 ### Installation:
 -------------
 1. Install AutoHotKey
-2. Edit recticule.ahk (follow instructions inside)
-3. Enjoy!
+2. Deploy Reticule
+3. Edit recticule.ahk (follow instructions inside)
+4. Run Reticule
+5. Enjoy!
 
 
 ### Keys:
