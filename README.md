@@ -7,7 +7,7 @@ It is not possible for this script, now nor in the future, to draw over games ru
 
 *Disclaimer: Custom crosshair overlays are allowed by most game developers. No resposibility is taken if your account is banned for using this script. I have been using this script for years and no issues have arrised so far.*
 
-Imgur gallery with some sample x-hairs: http://imgur.com/a/HJBhH
+Imgur: http://imgur.com/a/HJBhH
 
 ### Features:
 ---------
