@@ -8,7 +8,7 @@ It is not possible for this script, now nor in the future, to draw over games ru
 
 Disclaimer: Custom crosshair overlays are allowed by most game developers. No resposibility is taken if your account is banned for using this script.
 
-Features:
+### Features:
 ---------
 - multiple crosshairs included
 - opacity of crosshairs can be set
