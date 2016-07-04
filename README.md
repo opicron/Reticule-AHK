@@ -32,6 +32,8 @@ Imgur: http://imgur.com/a/HJBhH
 ### Keys:
 -----
 
+Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The modifier key listed below are combinations of *the windows function / windows start* <img src="http://i.imgur.com/jDaD7Mc.png" width="10"/> key
+
 | Key | Description |
 | :--- | :--- |
 | <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + page-up | set opacity (loops from 1 to 0.3) |
@@ -39,7 +41,7 @@ Imgur: http://imgur.com/a/HJBhH
 | <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + home | save configuration |
 | <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + [arrowkeys] | move crosshair |
 
-*<img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> = windows function key*
+
 ### Notes:
 ------
 - reload the script after adding or renaming crosshairs!
