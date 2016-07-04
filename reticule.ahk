@@ -8,7 +8,7 @@
 ; ADD YOUR GAME WINDOW HERE!
 ;
 
-ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; Dirty Bomb
+ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; Dirty Bomb / Hawken
 ;ProgWinTitle2 = ahk_class IW5          ; COD 8: MW3
 ;ProgWinTitle3 = ahk_class CoDBlackOps  ;COD 7: BO
 ;ProgWinTitle4 = ahk_class IW4          ;COD 6: MW2
@@ -214,17 +214,8 @@ return
 
 _write:
   IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
-  ;tmpFile = % FileList[x_id-1]
   IniWrite, %x_file%, %ScriptName%.ini, Main, filename
   
-  ;IniWrite, %x_alpha%, %ScriptName%.ini, Main, x_alpha
-  ;IniWrite, %PosX%, %ScriptName%.ini, Main, PosX
-  ;IniWrite, %PosY%, %ScriptName%.ini, Main, PosY
-
-  ;IniWrite, %x_alpha%, %ScriptName%.ini, %x_id%, x_alpha
-  ;IniWrite, %PosX%, %ScriptName%.ini, %x_id%, PosX
-  ;IniWrite, %PosY%, %ScriptName%.ini, %x_id%, PosY
-
   IniWrite, %x_alpha%, %ScriptName%.ini, %x_file%, x_alpha
   IniWrite, %PosX%, %ScriptName%.ini, %x_file%, PosX
   IniWrite, %PosY%, %ScriptName%.ini, %x_file%, PosY
@@ -236,12 +227,6 @@ _read:
   IniRead, Center_X, %ScriptName%.ini, Main, Center_X, %Center_X%
   IniRead, Center_Y, %ScriptName%.ini, Main, Center_Y, %Center_Y%
   
-  ; specific for xhair # else default
-  ;IniRead, x_alpha, %ScriptName%.ini, %x_id%, x_alpha, %x_alpha%
-  ;IniRead, PosX, %ScriptName%.ini, %x_id%, PosX, %PosX%
-  ;IniRead, PosY, %ScriptName%.ini, %x_id%, PosY, %PosY%
-  
-  ;tmpFile = % FileList[x_id-1]
   IniRead, x_alpha, %ScriptName%.ini, %x_file%, x_alpha, %x_alpha%
   IniRead, PosX, %ScriptName%.ini, %x_file%, PosX, %PosX%
   IniRead, PosY, %ScriptName%.ini, %x_file%, PosY, %PosY%
@@ -257,18 +242,15 @@ _readxhair:
   IniRead, PosY, %ScriptName%.ini, Main, PosY, %PosY%
 
   ; specific for xhair # else default
-  ;tmpFile = % FileList[x_id-1]
   IniRead, x_alpha, %ScriptName%.ini, %x_file%, x_alpha, %x_alpha%
   IniRead, PosX, %ScriptName%.ini, %x_file%, PosX, %PosX%
   IniRead, PosY, %ScriptName%.ini, %x_file%, PosY, %PosY%
   
-  ;IniRead, x_alpha, %ScriptName%.ini, %x_id%, x_alpha, %x_alpha%
-  ;IniRead, PosX, %ScriptName%.ini, %x_id%, PosX, %PosX%
-  ;IniRead, PosY, %ScriptName%.ini, %x_id%, PosY, %PosY%
 Return
 
 _firstrun:
   ;defaults
+  IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
   IniWrite, %PosX%, %ScriptName%.ini, Main, PosX
   IniWrite, %PosY%, %ScriptName%.ini, Main, PosY
   IniWrite, %x_alpha%, %ScriptName%.ini, Main, x_alpha
