@@ -4,6 +4,21 @@
 ; hacking and improvements by: rZr/opicr0n
 ;
 
+;
+; ADD YOUR GAME WINDOW HERE!
+;
+
+ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; Dirty Bomb
+;ProgWinTitle2 = ahk_class IW5          ; COD 8: MW3
+;ProgWinTitle3 = ahk_class CoDBlackOps  ;COD 7: BO
+;ProgWinTitle4 = ahk_class IW4          ;COD 6: MW2
+;ProgWinTitle5 = ahk_class CoD-WaW      ;COD 5: WAW
+;ProgWinTitle6 = ahk_class CoD4         ;COD 4: MW
+
+;
+; DO NOT CHANGE CODE UNDERNEATH!
+;
+
 #NoEnv
 #Persistent ; keep running due to timers
 #SingleInstance, Force
@@ -48,12 +63,9 @@ PosY    := 0
 x_alpha := 1
 x_id    := 1
 
-ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; db
-;ProgWinTitle2 = ahk_class IW5          ; COD 8: MW3
-;ProgWinTitle3 = ahk_class CoDBlackOps  ;COD 7: BO
-;ProgWinTitle4 = ahk_class IW4          ;COD 6: MW2
-;ProgWinTitle5 = ahk_class CoD-WaW      ;COD 5: WAW
-;ProgWinTitle6 = ahk_class CoD4         ;COD 4: MW
+;
+;
+;
 
 ScriptName := A_ScriptName
 StringReplace, ScriptName, ScriptName, .ahk,, All
