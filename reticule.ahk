@@ -1,7 +1,7 @@
-; Custom X-hair v0.1
+; Reticule v0.1 - opicr0n
 ;
 ; code gathered from various sources
-; hacking and improvements by: rZr/opicr0n
+; hacking and improvements by: opicr0n
 ;
 
 ;
@@ -25,14 +25,23 @@ ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; Dirty Bomb / Hawken
 #Include, Gdip.ahk
 #MaxHotkeysPerInterval 200
 #HotkeyInterval 2000
-SetTitleMatchMode, 3 ; A window's title must exactly match WinTitle to be a match.
-Menu, Tray, Icon, reticule.ico, 0 ; set icon
 
+SetTitleMatchMode, 3 ; A window's title must exactly match WinTitle to be a match.
+
+;
+; System Tray
+;
+
+Menu, Tray, Icon, reticule.ico, 0 
 Menu, Tray, NoStandard
 Menu, Tray, Add, Disable Crosshair, m_hide
 Menu, Tray, Add, Enable Crosshair, _create
 Menu, Tray, Add, &Reload, _reload
 Menu, Tray, Add, E&xit, _exit
+
+;
+; Get Primary monitor information
+;
 
 ;SysGet, MonitorName, MonitorName, 1
 SysGet, Monitor, Monitor, 1 ; get primary monitor
@@ -63,10 +72,6 @@ PosY    := 0
 x_alpha := 1
 x_id    := 0
 
-;
-;
-;
-
 ScriptName := A_ScriptName
 StringReplace, ScriptName, ScriptName, .ahk,, All
 StringReplace, ScriptName, ScriptName, .exe,, All
@@ -84,7 +89,7 @@ _start:
 
   SetTimer, LabelCheckTrigger, 100 ; check active window every 100ms
 
-Return ;return so we do not create the reticule in desktop
+Return ; return so we do not create the reticule in desktop
 
 _create:
 
@@ -121,6 +126,7 @@ _create:
   Gdip_DrawImage(pGraphics, x_Bitmap, this_X, this_Y, x_Width, x_Height,"","","","",x_alpha)
   UpdateLayeredWindow(hGui, hdc)
   Gdip_DeleteBrush(pBrush)
+
 Return
 
 
@@ -134,6 +140,7 @@ Return
   }
   Gui, Destroy
   Gosub _create
+
 Return
 
 
@@ -159,6 +166,7 @@ Return
      Gosub _create
   } 
   Send, {blind}{end}
+
 Return
 
 
@@ -201,7 +209,6 @@ m_hide:
    if (x_id != -1)
    {
       Gui, Destroy
-      ;x_id := 0 ; this will muck up
    }
 Return
 
@@ -213,20 +220,16 @@ showch:
 return
 
 _write:
-  ;IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
   IniWrite, %x_file%, %ScriptName%.ini, Main, filename
-  
   IniWrite, %x_alpha%, %ScriptName%.ini, %x_file%, x_alpha
   IniWrite, %PosX%, %ScriptName%.ini, %x_file%, PosX
   IniWrite, %PosY%, %ScriptName%.ini, %x_file%, PosY
 Return
 
 _read:
-  ;IniRead, x_id, %ScriptName%.ini, Main, x_id, %x_id%
   IniRead, x_file, %ScriptName%.ini, Main, x_file, %x_file%
   IniRead, Center_X, %ScriptName%.ini, Main, Center_X, %Center_X%
-  IniRead, Center_Y, %ScriptName%.ini, Main, Center_Y, %Center_Y%
-  
+  IniRead, Center_Y, %ScriptName%.ini, Main, Center_Y, %Center_Y%  
   IniRead, x_alpha, %ScriptName%.ini, %x_file%, x_alpha, %x_alpha%
   IniRead, PosX, %ScriptName%.ini, %x_file%, PosX, %PosX%
   IniRead, PosY, %ScriptName%.ini, %x_file%, PosY, %PosY%
@@ -234,12 +237,10 @@ _read:
   ; find x_id from list of files, else 0
   for index, element in FileList
   {
-    ;ToolTip, %element% %x_file%
     StringGetPos, pos, element, %x_file%
     if pos >= 0
       x_id := index
   }
-  ;ToolTip, %x_id%
 
   OCX := Center_X + PosX
   OCY := Center_Y + PosY
@@ -251,7 +252,7 @@ _readxhair:
   IniRead, PosX, %ScriptName%.ini, Main, PosX, %PosX%
   IniRead, PosY, %ScriptName%.ini, Main, PosY, %PosY%
 
-  ; specific for xhair # else default
+  ; specific for xhair# else default
   IniRead, x_alpha, %ScriptName%.ini, %x_file%, x_alpha, %x_alpha%
   IniRead, PosX, %ScriptName%.ini, %x_file%, PosX, %PosX%
   IniRead, PosY, %ScriptName%.ini, %x_file%, PosY, %PosY%
@@ -260,12 +261,10 @@ Return
 
 _firstrun:
   ;defaults
-  ;IniWrite, %x_id%, %ScriptName%.ini, Main, x_id
   IniWrite, %PosX%, %ScriptName%.ini, Main, PosX
   IniWrite, %PosY%, %ScriptName%.ini, Main, PosY
   IniWrite, %x_alpha%, %ScriptName%.ini, Main, x_alpha
   IniWrite, %x_file%, %ScriptName%.ini, Main, filename
-
   IniWrite, %Center_X%, %ScriptName%.ini, Main, Center_X
   IniWrite, %Center_Y%, %ScriptName%.ini, Main, Center_Y
   GoSub, _start
@@ -282,11 +281,7 @@ LabelCheckTrigger:
   While ( ProgWinTitle%A_Index% != "" ) ; onlt trigger active
     if ( !ProgRunning%A_Index% != !WinActive( ProgWinTitle := ProgWinTitle%A_Index% ) ) ; only active
       GoSubSafe( "LabelTriggerO" ( (ProgRunning%A_Index% := !ProgRunning%A_Index%) ? "n" : "ff" ) ) ; removed index
-    
-  ;While ( ProgWinTitle%A_Index% != "" && WinTrigger := WinTrigger%A_Index% )
-  ;  if ( !ProgRunning%A_Index% != !Win%WinTrigger%( ProgWinTitle := ProgWinTitle%A_Index% ) )
-  ;    GoSubSafe( "LabelTriggerO" ( (ProgRunning%A_Index% := !ProgRunning%A_Index%) ? "n" : "ff" ) A_Index )
-
+      
 Return
 
 GoSubSafe(mySub)
