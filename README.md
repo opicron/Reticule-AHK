@@ -1,5 +1,5 @@
 # Reticule-AHK
-Crosshair AHK script
+##Crosshair AHK script
 ====================
 
 Reticule uses an transparant overlay window to draw an crosshair over games running in fullscreen windowed mode(!). Think of the Muble overlay with more functionality and less bulk.
@@ -19,14 +19,14 @@ Disclaimer: Custom crosshair overlays are allowed by most game developers. No re
 - system tray icon with context menu
 
 
-Installation:
+### Installation:
 -------------
 - Install AutoHotKey
 - Edit recticule.ahk and add or uncomment the game window class in the top configuration area (some examples included). Keep an eye on the numbering of the variables!
 - Enjoy!
 
 
-Keys:
+### Keys:
 -----
 ###### [windowskey] + page-up      
 set opacity (loops from 1 to 0.5)
@@ -41,7 +41,7 @@ save configuration
 move crosshair
 
 
-Notes:
+### Notes:
 ------
 - reload the script after adding or renaming crosshairs!
 - add your game window class to the script else it will not show!
