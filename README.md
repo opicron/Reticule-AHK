@@ -42,6 +42,6 @@ Imgur: http://imgur.com/a/HJBhH
 ### Notes:
 ------
 - reload the script after adding or renaming crosshairs!
-- add your game window class to the script else it will not show!
+- add your game window class to the script!
 
 
