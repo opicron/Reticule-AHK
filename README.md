@@ -19,10 +19,14 @@ Features:
 -----
 Keys:
 -----
-- [windowskey] + page-up      set opacity (loops from 1 to 0.5)
-- [windowskey] + end          loop through crosshairs in /gfx (PNG only)
-- [windowskey] + home         save configuration
-- [windowskey] + [arrowkeys]  move crosshair
+- [windowskey] + page-up      
+set opacity (loops from 1 to 0.5)
+- [windowskey] + end          
+loop through crosshairs in /gfx (PNG only)
+- [windowskey] + home         
+save configuration
+- [windowskey] + [arrowkeys]  
+move crosshair
 
 ------
 Notes:
