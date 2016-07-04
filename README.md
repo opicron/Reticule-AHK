@@ -37,7 +37,7 @@ Imgur: http://imgur.com/a/HJBhH
 | ![alt tag](http://i.imgur.com/jDaD7Mc.png) + page-up | set opacity (loops from 1 to 0.3) |
 | ![alt tag](http://i.imgur.com/jDaD7Mc.png) + end | loop through crosshairs in /gfx (PNG only) |
 | ![alt tag](http://i.imgur.com/jDaD7Mc.png) + home | save configuration |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="10"/> + [arrowkeys] | move crosshair |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="14"/> + [arrowkeys] | move crosshair |
 
 ### Notes:
 ------
