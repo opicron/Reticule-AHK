@@ -34,11 +34,12 @@ Imgur: http://imgur.com/a/HJBhH
 
 | Key | Description |
 | :--- | :--- |
-| ![alt tag](http://i.imgur.com/jDaD7Mc.png) + page-up | set opacity (loops from 1 to 0.3) |
-| ![alt tag](http://i.imgur.com/jDaD7Mc.png) + end | loop through crosshairs in /gfx (PNG only) |
-| ![alt tag](http://i.imgur.com/jDaD7Mc.png) + home | save configuration |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + page-up | set opacity (loops from 1 to 0.3) |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + end | loop through crosshairs in /gfx (PNG only) |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + home | save configuration |
 | <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + [arrowkeys] | move crosshair |
 
+*<img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> = windows function key*
 ### Notes:
 ------
 - reload the script after adding or renaming crosshairs!
