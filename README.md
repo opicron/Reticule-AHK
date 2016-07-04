@@ -36,10 +36,10 @@ Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The
 
 | Key | Description |
 | :--- | :--- |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + page-up | set opacity (loops from 1 to 0.3) |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + end | loop through crosshairs in /gfx (PNG only) |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + home | save configuration |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="13"/> + [arrowkeys] | move crosshair |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + page-up | set opacity (loops from 1 to 0.3) |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + end | loop through crosshairs in /gfx (PNG only) |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + home | save configuration |
+| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + [arrowkeys] | move crosshair |
 
 
 ### Notes:
