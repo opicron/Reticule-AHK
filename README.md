@@ -34,7 +34,7 @@ Imgur: http://imgur.com/a/HJBhH
 
 | Key | Description |
 | :--- | :--- |
-| [windowskey] + page-up | set opacity (loops from 1 to 0.3) |
+| ![alt tag](http://i.imgur.com/jDaD7Mc.png) [windowskey] + page-up | set opacity (loops from 1 to 0.3) |
 | [windowskey] + end | loop through crosshairs in /gfx (PNG only) |
 | [windowskey] + home | save configuration |
 | [windowskey] + [arrowkeys] | move crosshair |
