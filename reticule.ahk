@@ -221,6 +221,7 @@ Return
 
 #Up::
     PosY -= 1
+    Gosub m_hide
     Gosub _write
     GoSub, showch
 return
@@ -228,6 +229,7 @@ return
 
 #Down::
     PosY += 1
+    Gosub m_hide
     Gosub _write
     GoSub, showch
 return
@@ -235,6 +237,7 @@ return
 
 #Left::
     PosX -= 1
+    Gosub m_hide
     Gosub _write
     GoSub, showch
 return
@@ -242,6 +245,7 @@ return
 
 #Right::
     PosX += 1
+    Gosub m_hide
     Gosub _write
     GoSub, showch
 return
@@ -329,12 +333,15 @@ Return
 _exit:
   ;if (fullscreen) ; must test if windowed mode could m_hide onexit
   ;{
-    Gosub m_hide
+  Gosub m_hide
   ;}
   ExitApp
+Return
 
 _reload:
+  Gosub m_hide
   Reload
+Return
 
 LabelCheckTrigger:
  
