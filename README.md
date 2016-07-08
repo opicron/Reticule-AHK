@@ -5,7 +5,9 @@ Reticule uses an transparant overlay window to draw an crosshair over games runn
 
 Windowed mode crosshair overlay is undetectable and I have been running it for years now. The fullscreen crosshair overlay is achieved by injecting the overlay code (an mere direct3d image load) in the endscene of the direct3d application. The injecting of an overlay is detectable by the game client(*).
 
-*\*Disclaimer: Custom crosshair overlays are allowed by most game developers. No resposibility is taken if your account is banned for using this script. I have been using this script for years and no issues have arrised so far.*
+*Disclaimer: Custom crosshair overlays are allowed by most game developers. No resposibility is taken if your account is banned for using this script. I have been using this script for years and no issues have arrised so far.*
+
+Note: for direct3d fullscreen overlay you need to load with Autohotkey 32bit!
 
 Imgur: http://imgur.com/a/HJBhH
 
@@ -47,6 +49,7 @@ Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The
 ------
 - reload the script after adding or renaming crosshairs!
 - add your game window class to the script!
+- for fullscreen direct 3d mode use autohotkey 32bit!
 
 ### Greetings:
 ---
