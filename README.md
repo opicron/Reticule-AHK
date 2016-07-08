@@ -33,14 +33,14 @@ Imgur: http://imgur.com/a/HJBhH
 ### Keys:
 -----
 
-Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The modifier key listed below are combinations of the *windows function / windows start* ( <img src="http://i.imgur.com/jDaD7Mc.png" width="10"/> ) key
+Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The modifier key listed below are combinations of the *right alt* key
 
 | Key | Description |
 | :--- | :--- |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + page-up | set opacity (loops from 1 to 0.3) |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + end | loop through crosshairs in /gfx (PNG only) |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + home | save configuration |
-| <img src="http://i.imgur.com/jDaD7Mc.png" width="12"/> + [arrowkeys] | move crosshair |
+| right alt + page-up | set opacity (loops from 1 to 0.3) |
+| right alt + end | loop through crosshairs in /gfx (PNG only) |
+| right alt + home | save configuration |
+| right alt + [arrowkeys] | move crosshair |
 
 
 ### Notes:

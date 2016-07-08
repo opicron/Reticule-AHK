@@ -104,20 +104,15 @@ StringReplace, ScriptName, ScriptName, .exe,, All
 ;
 
 _start:
-
   IfNotExist, %ScriptName%.ini
     Gosub, _firstrun
   else
     Gosub, _read
-
   SetTimer, LabelCheckTrigger, 100 ; check active window every 100ms
-
-Return ; return so we do not create the reticule in desktop
+  Return ; return so we do not create the reticule in desktop
 
 _create:
-
-  fileName := "gfx\" . x_file
-  
+  fileName := "gfx\" . x_file 
   if (fullscreen)
   {
     pToken := Gdip_Startup()
@@ -173,26 +168,19 @@ _create:
     UpdateLayeredWindow(hGui, hdc)
     Gdip_DeleteBrush(pBrush)
   }
-Return
-
+  Return
 
 #PgUp UP::
-
   x_alpha := x_alpha - 0.1
-
   if (x_alpha < 0.3)
   {
      x_alpha := 1
   }
-  ;Gui, Destroy
   Gosub m_hide
   Gosub _create
+  Return
 
-Return
-
-
-#End UP::
-
+RAlt & End UP::
   if (x_id == -1) ;there was no reticule, create new
   {
     x_id := 0
@@ -215,47 +203,41 @@ Return
      Gosub _create
   } 
   Send, {blind}{end}
+  Return
 
-Return
-
-
-#Up::
+RAlt & Up::
     PosY -= 1
     Gosub m_hide
     Gosub _write
     GoSub, showch
-return
+    Return
 
-
-#Down::
+RAlt & Down::
     PosY += 1
     Gosub m_hide
     Gosub _write
     GoSub, showch
-return
+    Return
 
-
-#Left::
+RAlt & Left::
     PosX -= 1
     Gosub m_hide
     Gosub _write
     GoSub, showch
-return
+    Return
 
-
-#Right::
+RAlt & Right::
     PosX += 1
     Gosub m_hide
     Gosub _write
     GoSub, showch
-return
+    Return
 
 
-#Home::
-    
+RAlt & Home::  
   Gosub _write
   Send, {blind}{home}
-Return
+  Return
 
 
 m_hide:
