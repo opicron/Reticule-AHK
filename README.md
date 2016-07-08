@@ -52,7 +52,7 @@ Various hotkeys are implemented to adjust the crosshairs on the fly in-game. The
 ---
 Greetings in no particular order:
 
-Big thanks to the ahk guys on the official AHK forums! Also worth mentioning the great people at the Hawken and Dirty Bomb forums, meraple, dieboard, zulaji, anders, thomaze, ran, rocket, soad, kopra, diox, memag, miscellaneous, pandabaron, alvaro.
+Big thanks to the ahk guys on the official AHK forums! Also worth mentioning the great people at the Hawken and Dirty Bomb forums, meraple, dieboard, zulaji, anders, thomaze, ran, rocket, soad, kopra, diox, memag, miscellaneous, pandabaron
 
 Whoever i forgot, you know who you are ^^
 
