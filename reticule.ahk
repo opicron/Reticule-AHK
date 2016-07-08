@@ -10,8 +10,17 @@
 ; diox, memag, miscellaneous, pandabaron, alvaro
 ; whoever i forgot, you know who you are ^^
 
+; FULLSCREEN or WINDOWED
+
+; true: Reticule will use direct3d dll inject to overlay crosshair (detectable)
+; false: Reticule will use default overlay for crosshair (non detectable)
+
+fullscreen := true
+
+; add your game window class here
+
 ;
-; ADD YOUR GAME WINDOW HERE!
+; WINDOWED MODE 
 ;
 
 ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; Dirty Bomb / Hawken
@@ -22,13 +31,21 @@ ProgWinTitle1 = ahk_class LaunchUnrealUWindowsClient ; Dirty Bomb / Hawken
 ;ProgWinTitle6 = ahk_class CoD4         ;COD 4: MW
 
 ;
+; FULLSCREEN MODE
+;
+
+ProgFileName1 = ahk_exe HawkenGame-Win32-Shipping.exe ; Hawken
+ProgFileName2 = ahk_exe ShooterGame-Win32-Shipping.exe ; DirtyBomb
+
+;
 ; DO NOT CHANGE CODE UNDERNEATH!
 ;
 
 #NoEnv
 #Persistent ; keep running due to timers
 #SingleInstance, Force
-#Include, Gdip.ahk
+#Include, Gdip.ahk ; windowed mode
+#include bin\overlay_improved.ahk ; fullscreen mode
 #MaxHotkeysPerInterval 200
 #HotkeyInterval 2000
 
@@ -99,40 +116,63 @@ Return ; return so we do not create the reticule in desktop
 
 _create:
 
-  Gui, +LastFound -Caption +E0x80000 +E0x20 +E0x8 +Owner
-  hGui := WinExist()
-  pToken := Gdip_Startup()
-
   fileName := "gfx\" . x_file
+  
+  if (fullscreen)
+  {
+    pToken := Gdip_Startup()
 
-  x_Bitmap  := Gdip_CreateBitmapFromFile(fileName)                                                             ; rZr
-  x_Width   := Gdip_GetImageWidth(x_Bitmap)                                                                    ; rZr
-  x_Height  := Gdip_GetImageHeight(x_Bitmap)                                                                   ; rZr
-  nWidth    := x_Width
-  nHeight   := x_Height
+    x_Bitmap  := Gdip_CreateBitmapFromFile(fileName)                                                             ; rZr
+    x_Width   := Gdip_GetImageWidth(x_Bitmap)                                                                    ; rZr
+    x_Height  := Gdip_GetImageHeight(x_Bitmap)                                                                   ; rZr
+    
+    OCX := Center_X + PosX - (x_Width / 2)
+    OCY := Center_Y + PosY- (x_Height / 2)
+    
+    ;tooltip %OCX% %OCY%
+    SetCalculationRatio(1920,1080)
+    fullName := RelToAbs(A_ScriptDir, fileName)
+    ImageCreate(fullName, OCX, OCY, 0, 1, true)
 
-  OCX := Center_X + PosX - (nWidth / 2)
-  OCY := Center_Y + PosY- (nHeight / 2)
+    ;ImageCreate("d:\Code\AHK\Reticule_full\DX9-Overlay-API-master\samples\AHK\Default2.png", 832, 412, 0, 1, true)       
+    ;ImageCreate("d:\Code\AHK\Reticule\gfx\red dot gray diagonal.png", 832, 412, 0, 0, true)        
+  }
+  Else
+  {
+    Gui, +LastFound -Caption +E0x80000 +E0x20 +E0x8 +Owner
+    hGui := WinExist()
+    pToken := Gdip_Startup()
 
-  hbm := CreateDIBSection(nWidth,nHeight)
-  hdc := CreateCompatibleDC()
-  obm := SelectObject(hdc, hbm)
-  pGraphics := Gdip_GraphicsFromHDC(hdc)
+    ;fileName := "gfx\" . x_file
 
-  Gui, Show, X%OCX% Y%OCY% NoActivate
-  UpdateLayeredWindow(hGui, hdc, OCX,OCY,nWidth,nHeight)                                                       ; rZr
-  Gdip_SetCompositingMode(pGraphics,1)
+    x_Bitmap  := Gdip_CreateBitmapFromFile(fileName)                                                             ; rZr
+    x_Width   := Gdip_GetImageWidth(x_Bitmap)                                                                    ; rZr
+    x_Height  := Gdip_GetImageHeight(x_Bitmap)                                                                   ; rZr
+    nWidth    := x_Width
+    nHeight   := x_Height
 
-  pBrush := Gdip_BrushCreateSolid(0x0000000)
-  Gdip_FillRectangle(pGraphics, pBrush, 0, 0, nWidth, nHeight)
+    OCX := Center_X + PosX - (nWidth / 2)
+    OCY := Center_Y + PosY- (nHeight / 2)
 
-  this_X := Round( (nWidth - x_Width) / 2)
-  this_Y := Round( (nHeight - x_Height) / 2)
+    hbm := CreateDIBSection(nWidth,nHeight)
+    hdc := CreateCompatibleDC()
+    obm := SelectObject(hdc, hbm)
+    pGraphics := Gdip_GraphicsFromHDC(hdc)
 
-  Gdip_DrawImage(pGraphics, x_Bitmap, this_X, this_Y, x_Width, x_Height,"","","","",x_alpha)                   ; rZr
-  UpdateLayeredWindow(hGui, hdc)
-  Gdip_DeleteBrush(pBrush)
+    Gui, Show, X%OCX% Y%OCY% NoActivate
+    UpdateLayeredWindow(hGui, hdc, OCX,OCY,nWidth,nHeight)                                                       ; rZr
+    Gdip_SetCompositingMode(pGraphics,1)
 
+    pBrush := Gdip_BrushCreateSolid(0x0000000)
+    Gdip_FillRectangle(pGraphics, pBrush, 0, 0, nWidth, nHeight)
+
+    this_X := Round( (nWidth - x_Width) / 2)
+    this_Y := Round( (nHeight - x_Height) / 2)
+
+    Gdip_DrawImage(pGraphics, x_Bitmap, this_X, this_Y, x_Width, x_Height,"","","","",x_alpha)                   ; rZr
+    UpdateLayeredWindow(hGui, hdc)
+    Gdip_DeleteBrush(pBrush)
+  }
 Return
 
 
@@ -144,7 +184,8 @@ Return
   {
      x_alpha := 1
   }
-  Gui, Destroy
+  ;Gui, Destroy
+  Gosub m_hide
   Gosub _create
 
 Return
@@ -160,14 +201,16 @@ Return
   }
   else if (x_id = maxFiles-1) ; max number reached, remove reticule
   {
-     Gui, Destroy
+     ;Gui, Destroy
+     Gosub m_hide
      x_id := -1
   }
   else 
   {
      x_id++
      x_file = % FileList[x_id]
-     Gui, Destroy
+     ;Gui, Destroy
+     Gosub m_hide
      Gosub _readxhair
      Gosub _create
   } 
@@ -214,7 +257,14 @@ Return
 m_hide:
    if (x_id != -1)
    {
-      Gui, Destroy
+      if (fullscreen)
+      {
+        DestroyAllVisual()
+      }
+      else
+      {
+        Gui, Destroy
+      }
    }
 Return
 
@@ -226,7 +276,7 @@ showch:
 return
 
 _write:
-  IniWrite, %x_file%, %ScriptName%.ini, Main, filename
+  IniWrite, %x_file%, %ScriptName%.ini, Main, x_file
   IniWrite, %x_alpha%, %ScriptName%.ini, %x_file%, x_alpha
   IniWrite, %PosX%, %ScriptName%.ini, %x_file%, PosX
   IniWrite, %PosY%, %ScriptName%.ini, %x_file%, PosY
@@ -270,13 +320,17 @@ _firstrun:
   IniWrite, %PosX%, %ScriptName%.ini, Main, PosX
   IniWrite, %PosY%, %ScriptName%.ini, Main, PosY
   IniWrite, %x_alpha%, %ScriptName%.ini, Main, x_alpha
-  IniWrite, %x_file%, %ScriptName%.ini, Main, filename
+  IniWrite, %x_file%, %ScriptName%.ini, Main, x_file
   IniWrite, %Center_X%, %ScriptName%.ini, Main, Center_X
   IniWrite, %Center_Y%, %ScriptName%.ini, Main, Center_Y
   GoSub, _start
 Return
 
 _exit:
+  ;if (fullscreen) ; must test if windowed mode could m_hide onexit
+  ;{
+    Gosub m_hide
+  ;}
   ExitApp
 
 _reload:
@@ -284,9 +338,22 @@ _reload:
 
 LabelCheckTrigger:
  
-  While ( ProgWinTitle%A_Index% != "" ) ; onlt trigger active
-    if ( !ProgRunning%A_Index% != !WinActive( ProgWinTitle := ProgWinTitle%A_Index% ) ) ; only active
-      GoSubSafe( "LabelTriggerO" ( (ProgRunning%A_Index% := !ProgRunning%A_Index%) ? "n" : "ff" ) ) ; removed index
+  if (fullscreen)
+  {
+    While ( ProgFileName%A_Index% != "" ) ; onlt trigger active
+      if ( !ProgRunning%A_Index% != !WinExist( ProgFileName := ProgFileName%A_Index% ) ) ; only active
+      {
+        StringTrimLeft, ProcessFileName, ProgFileName%A_Index%, 8
+        SetParam("process", ProcessFileName) ; is this required? yes it is!
+        GoSubSafe( "LabelTriggerO" ( (ProgRunning%A_Index% := !ProgRunning%A_Index%) ? "n" : "ff" ) ) ; removed index
+      }
+  }
+  Else
+  {
+    While ( ProgWinTitle%A_Index% != "" ) ; onlt trigger active
+      if ( !ProgRunning%A_Index% != !WinActive( ProgWinTitle := ProgWinTitle%A_Index% ) ) ; only active
+        GoSubSafe( "LabelTriggerO" ( (ProgRunning%A_Index% := !ProgRunning%A_Index%) ? "n" : "ff" ) ) ; removed index
+  }
 
 Return
 
